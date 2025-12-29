@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../constants';
+import { Image } from '../components/Image';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -48,8 +49,8 @@ const BlogPost = () => {
                 </div>
             </header>
 
-            <div className="rounded-3xl overflow-hidden aspect-video shadow-lg mb-12">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+            <div className="rounded-3xl overflow-hidden aspect-video shadow-lg mb-12 bg-slate-100">
+                <Image src={post.image} alt={post.title} className="w-full h-full object-cover" />
             </div>
 
             <div 

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BLOG_POSTS } from '../constants';
+import { Image } from '../components/Image';
 
 const Blog = () => {
     const navigate = useNavigate();
@@ -55,9 +56,9 @@ const Blog = () => {
                                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                              </button>
                          </div>
-                         <div className="h-64 md:h-auto w-full relative order-1 md:order-2">
-                             <img src={heroPost.image} alt={heroPost.title} className="absolute inset-0 w-full h-full object-cover" />
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:bg-none"></div>
+                         <div className="h-64 md:h-auto w-full relative order-1 md:order-2 bg-slate-100 dark:bg-slate-700">
+                             <Image src={heroPost.image} alt={heroPost.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:bg-none z-10"></div>
                          </div>
                      </div>
                  </div>
@@ -92,8 +93,8 @@ const Blog = () => {
                             onClick={() => handleReadPost(post.id)}
                          >
                             <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                                <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                                <div className="absolute right-3 top-3 rounded-lg bg-white/90 dark:bg-slate-900/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-primary backdrop-blur-sm shadow-sm">
+                                <Image src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                <div className="absolute right-3 top-3 rounded-lg bg-white/90 dark:bg-slate-900/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-primary backdrop-blur-sm shadow-sm z-20">
                                     {post.category}
                                 </div>
                             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from '../components/Image';
 
 const Contact = () => {
   return (
@@ -111,7 +112,7 @@ const Contact = () => {
                  
                  <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-soft p-2 border border-slate-100 dark:border-slate-700 overflow-hidden">
                     <div className="relative w-full h-48 rounded-2xl overflow-hidden group bg-slate-200">
-                         <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTXBDPKqslPDgJGeozYKUBJputAgZwsPosaj0PBtsvgxz6hFLECvh0YUWP2lZqrc2ynfU08Si9ulP5_LK1E1dJlC9uDLIOP2kbm7kF-RQW3UQcWEgmFrhGtfjEGf5_3fpTJpmWLvL3YNqgio_SQQ2a4XPlZ0FjBrIc9X_l8hvbuxXlWfAfr_ijyzKrNLaY_YPsZVwoB3c0Jocf1fD-j9H7Q79MYsxo3VqnQHjUuz7zF86-ugbo2yzi3SWGhjt5XaBPY_dhUM0g_GUN" 
+                         <Image src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTXBDPKqslPDgJGeozYKUBJputAgZwsPosaj0PBtsvgxz6hFLECvh0YUWP2lZqrc2ynfU08Si9ulP5_LK1E1dJlC9uDLIOP2kbm7kF-RQW3UQcWEgmFrhGtfjEGf5_3fpTJpmWLvL3YNqgio_SQQ2a4XPlZ0FjBrIc9X_l8hvbuxXlWfAfr_ijyzKrNLaY_YPsZVwoB3c0Jocf1fD-j9H7Q79MYsxo3VqnQHjUuz7zF86-ugbo2yzi3SWGhjt5XaBPY_dhUM0g_GUN" 
                          alt="Map" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"/>
                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                              <span className="bg-white/90 text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg">Get Directions</span>

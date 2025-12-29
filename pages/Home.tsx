@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES, DOCTORS, BLOG_POSTS } from '../constants';
+import { Image } from '../components/Image';
 
 const HeroSection = () => (
   <section className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 flex flex-col md:flex-row items-center gap-12 overflow-hidden">
@@ -66,8 +67,11 @@ const HeroSection = () => (
                     <p className="text-[10px] text-slate-500">Top Rated Doctors</p>
                 </div>
              </div>
-             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoRgIK1zAg47QnNxXsT3zHHwMC8ZxGuxN9Ld5biN1LQzO3I8AYef4himvg5Pxfg1jq9RSnjlTEpqUWeuxGDic834S_es0CNJ9qmBMwr1UTIVcwLzjg863wW8zCiL4palziajggZWM1YaxTOnf-oR83bddGRmbF_LqHM1PrIanQnshtywgkpE_C0scr7fP6Hm6nAC2HE5duzwQugnTrmFRj7q8Vj8OCDcv1wWkTcVu2LfEcyDFp87j9u6jmOXu3JFa5DarKNnlyoMLQ" 
+             {/* Critical Image Optimization: fetchpriority="high" */}
+             <Image src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoRgIK1zAg47QnNxXsT3zHHwMC8ZxGuxN9Ld5biN1LQzO3I8AYef4himvg5Pxfg1jq9RSnjlTEpqUWeuxGDic834S_es0CNJ9qmBMwr1UTIVcwLzjg863wW8zCiL4palziajggZWM1YaxTOnf-oR83bddGRmbF_LqHM1PrIanQnshtywgkpE_C0scr7fP6Hm6nAC2HE5duzwQugnTrmFRj7q8Vj8OCDcv1wWkTcVu2LfEcyDFp87j9u6jmOXu3JFa5DarKNnlyoMLQ" 
                 alt="Happy Patient"
+                fetchPriority="high"
+                loading="eager"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
              />
         </div>
@@ -104,7 +108,7 @@ const ServicesSection = () => (
                         </span>
                     </div>
                     <div className="w-full sm:w-48 h-48 sm:h-auto rounded-2xl bg-slate-100 dark:bg-slate-700 overflow-hidden shrink-0">
-                         <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                         <Image src={service.image} alt={service.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                 </div>
             ))}
@@ -122,11 +126,11 @@ const DoctorsPreview = () => (
         {DOCTORS.slice(0, 3).map((doctor) => (
             <div key={doctor.id} className="group flex flex-col items-center gap-4">
                 <div className="relative size-48 rounded-full p-1 bg-gradient-to-tr from-primary to-blue-300 overflow-visible">
-                    <div className="w-full h-full rounded-full border-4 border-white dark:border-slate-800 bg-cover bg-center overflow-hidden">
-                        <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div className="w-full h-full rounded-full border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <Image src={doctor.image} alt={doctor.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     {doctor.available && (
-                         <div className="absolute bottom-2 right-2 size-8 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md">
+                         <div className="absolute bottom-2 right-2 size-8 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md z-10">
                             <span className="material-symbols-outlined text-primary text-sm">verified</span>
                         </div>
                     )}
@@ -160,8 +164,8 @@ const Home = () => {
             {BLOG_POSTS.slice(0, 3).map((post) => (
                 <article key={post.id} className="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-slate-100 dark:ring-slate-700/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                      <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                        <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        <div className="absolute right-3 top-3 rounded-lg bg-white/90 dark:bg-slate-900/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-primary backdrop-blur-sm shadow-sm">
+                        <Image src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        <div className="absolute right-3 top-3 rounded-lg bg-white/90 dark:bg-slate-900/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-primary backdrop-blur-sm shadow-sm z-20">
                             {post.category}
                         </div>
                      </div>

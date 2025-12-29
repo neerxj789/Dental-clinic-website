@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
+import { Image } from '../components/Image';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Services = () => {
             {SERVICES.map((service) => (
                 <div key={service.id} className="group relative flex flex-col gap-6 p-8 rounded-[2.5rem] bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300">
                      <div className="w-full aspect-video rounded-3xl overflow-hidden bg-slate-100">
-                         <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                         <Image src={service.image} alt={service.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                      </div>
                      <div className="flex-1">
                         <div className={`inline-flex p-3 rounded-2xl mb-4 ${service.colorClass.split(' ')[1]}`}>

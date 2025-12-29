@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { DOCTORS } from '../constants';
+import { Image } from '../components/Image';
 
 const Doctors = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -71,7 +72,9 @@ const Doctors = () => {
                         <div className="mb-4 flex justify-center">
                             <div className="relative h-32 w-32">
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary to-purple-400 opacity-20 blur-lg group-hover:opacity-40 transition-opacity"></div>
-                                <div className="h-full w-full rounded-full bg-cover bg-center ring-4 ring-white dark:ring-slate-800 relative z-10" style={{ backgroundImage: `url(${doctor.image})` }}></div>
+                                <div className="h-full w-full rounded-full ring-4 ring-white dark:ring-slate-800 relative z-10 overflow-hidden bg-slate-100">
+                                    <Image src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
+                                </div>
                             </div>
                         </div>
                         <div className="text-center flex-grow">

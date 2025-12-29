@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { SERVICES } from '../constants';
+import { Image } from '../components/Image';
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -64,10 +65,10 @@ const ServiceDetail = () => {
                     </div>
                 </div>
 
-                <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl">
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur rounded-2xl shadow-lg border border-white/20">
+                <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl bg-slate-100 dark:bg-slate-800">
+                    <Image src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+                    <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur rounded-2xl shadow-lg border border-white/20 z-10">
                          <div className="flex items-start gap-4">
                             <div className="size-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
                                 <span className="material-symbols-outlined">star</span>
